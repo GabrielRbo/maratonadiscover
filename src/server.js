@@ -1,13 +1,13 @@
 const { response } = require("express")
 const express = require("express")
 const server = express()
+const routes = require('./routes')
 
+// Habilitar arquivos statics
+server.use(express.static("public"))
 
-server.get('/', (request,response) => {
-    // console.log('Entrei no Index');
+// Usar os rotas
+server.use(routes)
 
-
-    return response.send('Olá!!!')
-})
 
 server.listen(3000, () => console.log('Rodando!'))
